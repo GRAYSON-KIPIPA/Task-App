@@ -58,7 +58,7 @@ const Home = () => {
       }
     };
     getTasks();
-  }, [status]);
+  }, []);
 
   console.log("STATUS", tasks);
 

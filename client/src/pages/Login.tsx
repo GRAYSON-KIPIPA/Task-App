@@ -10,8 +10,10 @@ import fetchWrapper from "../server/fetchWrapper";
 import { useNavigate } from "react-router-dom";
 import { User } from "../models/Types";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
 
 const Login = () => {
+  const theme = useTheme();
   const [form, setForm] = useState<User>({ email: "", password: "" });
   const [error, setError] = useState(false);
   const navigate = useNavigate();
@@ -32,21 +34,37 @@ const Login = () => {
 
   return (
     <div className="flex flex-col justify-center items-center mt-10  ">
-      <div className="flex justify-center items-center p-10 flex-col gap-4 w-[30%] border-1">
+      <h1 className="text-3xl m-3">Login Form</h1>
+      <div
+        className={`flex justify-center items-center p-10 flex-col gap-4 w-[30%] border-1 rounded-md shadow-md ${
+          theme.palette.mode === "dark"
+            ? "bg-gray-800 text-white"
+            : "bg-white text-black"
+        }`}
+      >
         <TextField
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           type="email"
-          size="small"
+          size="medium"
           fullWidth
           placeholder="Email"
+          sx={{
+            input: { color: theme.palette.mode === "dark" ? "#fff" : "#000" },
+            label: { color: theme.palette.mode === "dark" ? "#bbb" : "#555" },
+          }}
         />
         <TextField
           onChange={(e) => setForm({ ...form, password: e.target.value })}
           type={showPassword ? "text" : "password"}
-          size="small"
+          size="medium"
           fullWidth
           placeholder="Password"
           InputProps={{
+            style: {
+              color: theme.palette.mode === "dark" ? "white" : "black",
+              backgroundColor:
+                theme.palette.mode === "dark" ? "lightgray" : "#fff",
+            },
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton
@@ -57,6 +75,10 @@ const Login = () => {
                 </IconButton>
               </InputAdornment>
             ),
+          }}
+          sx={{
+            input: { color: theme.palette.mode === "dark" ? "#fff" : "#000" },
+            label: { color: theme.palette.mode === "dark" ? "#bbb" : "#555" },
           }}
         />
         <p>
