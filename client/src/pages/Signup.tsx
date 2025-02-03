@@ -1,6 +1,6 @@
 import { Button, TextField, InputAdornment, IconButton } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import fetchWrapper from "../server/fetchWrapper";
+import fetchWrapper from "../app/fetchWrapper";
 import { User } from "../models/Types";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";

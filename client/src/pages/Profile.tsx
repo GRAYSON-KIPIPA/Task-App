@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import fetchWrapper from "../server/fetchWrapper";
+import fetchWrapper from "../app/fetchWrapper";
 import { User } from "../models/Types";
 import {
   Button,

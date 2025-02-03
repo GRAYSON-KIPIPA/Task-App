@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
-import fetchWrapper from "../server/fetchWrapper";
+import fetchWrapper from "../app/fetchWrapper";
 import { Button, TextField, Autocomplete } from "@mui/material";
 import { Task } from "../models/Types";
 const taskStatuses = ["Pending", "In Progress", "Completed"];

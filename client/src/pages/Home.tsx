@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Box, Button, TextField } from "@mui/material";
-import fetchWrapper from "../server/fetchWrapper";
+import fetchWrapper from "../app/fetchWrapper";
 import NavBar from "../components/NavBar";
 import { Task } from "../models/Types";
 import Autocomplete from "@mui/material/Autocomplete";
