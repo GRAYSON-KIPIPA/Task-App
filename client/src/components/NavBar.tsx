@@ -7,8 +7,12 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 export default function NavBar() {
+  const { theme, toggleTheme } = useTheme();
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     window.location.href = "/";
@@ -27,6 +31,7 @@ export default function NavBar() {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography
             onClick={() => navigate("/home")}
             className="cursor-pointer"
@@ -48,6 +53,14 @@ export default function NavBar() {
           </Button>
           <Button onClick={handleLogout} color="inherit">
             LOGOUT
+          </Button>
+          <Button
+            variant="contained"
+            onClick={toggleTheme}
+            startIcon={theme === "light" ? <DarkModeIcon /> : <LightModeIcon />}
+            className={theme}
+          >
+            {/* {theme === "light" ? "Dark Mode" : "Light Mode"} */}
           </Button>
         </Toolbar>
       </AppBar>

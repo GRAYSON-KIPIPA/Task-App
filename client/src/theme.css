@@ -1,0 +1,34 @@
+/* Light Mode (default) */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Button Styles */
+button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+button.dark {
+  background-color: #333;
+  color: #ffffff;
+}
+
+button.light {
+  background-color: #f0f0f0;
+  color: #000000;
+}
