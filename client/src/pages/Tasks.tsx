@@ -80,7 +80,7 @@ const Tasks = () => {
         {currentTasks.map((task) => (
           <div
             key={task._id}
-            className="flex bg-stone-100 justify-center items-center p-10 flex-col gap-4 w-[30%] border-1"
+            className="flex mt-10 rounded-xl bg-stone-100 justify-center items-center p-10 border-pink-500 flex-col gap-8 w-[30%] border-1"
           >
             {/* Title Input */}
             <TextField

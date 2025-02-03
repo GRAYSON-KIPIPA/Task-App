@@ -8,11 +8,15 @@ import {
   Typography,
   InputAdornment,
   IconButton,
+  Avatar,
 } from "@mui/material";
 import NavBar from "../components/NavBar";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
+import { deepOrange } from "@mui/material/colors";
 
 const Profile = () => {
+  const theme = useTheme();
   const [form, setForm] = useState<User>({
     username: "",
     email: "",
@@ -60,17 +64,30 @@ const Profile = () => {
     }
   };
 
+  const initials = form["username"]
+    ?.split(" ")
+    .map((word) => word[0])
+    .join("");
+
   console.log(showPassword);
 
   return (
     <>
       <NavBar />
       <Container maxWidth="sm">
-        <Typography variant="h4" gutterBottom>
+        <Typography className="text-center p-2" variant="h4" gutterBottom>
           Profile Settings
         </Typography>
+        <div className="flex justify-center items-center">
+          <Avatar sx={{ width: 100, height: 100, bgcolor: deepOrange[500] }}>
+            <span className="text-4xl">{initials}</span>
+          </Avatar>
+        </div>
         {message && <Typography color="primary">{message}</Typography>}
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md"
+        >
           <TextField
             label="Username"
             name="username"
@@ -78,6 +95,10 @@ const Profile = () => {
             margin="normal"
             value={form.username}
             onChange={handleChange}
+            sx={{
+              input: { color: theme.palette.mode === "dark" ? "#fff" : "#000" },
+              label: { color: theme.palette.mode === "dark" ? "#bbb" : "#555" },
+            }}
           />
           <TextField
             label="Email"
@@ -86,6 +107,10 @@ const Profile = () => {
             margin="normal"
             value={form.email}
             onChange={handleChange}
+            sx={{
+              input: { color: theme.palette.mode === "dark" ? "#fff" : "#000" },
+              label: { color: theme.palette.mode === "dark" ? "#bbb" : "#555" },
+            }}
           />
           <TextField
             name="password"
@@ -106,6 +131,10 @@ const Profile = () => {
                 </InputAdornment>
               ),
             }}
+            sx={{
+              input: { color: theme.palette.mode === "dark" ? "#fff" : "#000" },
+              label: { color: theme.palette.mode === "dark" ? "#bbb" : "#555" },
+            }}
           />
           <Button
             type="submit"
@@ -113,6 +142,7 @@ const Profile = () => {
             color="primary"
             fullWidth
             disabled={loading}
+            className="mt-4"
           >
             {loading ? "Updating..." : "Update Profile"}
           </Button>

@@ -34,9 +34,9 @@ export default function NavBar() {
 
           <Typography
             onClick={() => navigate("/home")}
-            className="cursor-pointer"
-            variant="h6"
-            component="div"
+            className="cursor-pointer text-3xl"
+            // variant="h6"
+            component="p"
             sx={{ flexGrow: 1 }}
           >
             HOME
